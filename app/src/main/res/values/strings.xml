@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyRestuarant</string>
+    <string name="description">Browse and shop our food packages online at your convienience of your home</string>
+    <string name="nextFeatureButtonLabel">Next</string>
+</resources>
