@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">MyRestuarant</string>
-    <string name="description">Browse and shop our food packages online at your convienience of your home</string>
+    <string name="description">Browse and shop our food packages online at the convienience of your home</string>
     <string name="nextFeatureButtonLabel">Next</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

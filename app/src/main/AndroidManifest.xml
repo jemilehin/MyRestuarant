@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyRestuarant">
-        <activity android:name=".appIntro.FeaturePurchase"></activity>
+        <activity
+            android:name=".appIntro.AppfeaturesPager"
+            android:theme="@style/SplashScreen">
+
+        </activity>
+        <activity
+            android:name=".appIntro.DeliverySlide"
+            android:theme="@style/SplashScreen">
+
+        </activity>
         <activity
             android:name=".appIntro.SplashScreenActivity"
             android:theme="@style/SplashScreen">
@@ -19,7 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="Dashboard">
+
+        </activity>
     </application>
 
 </manifest>
