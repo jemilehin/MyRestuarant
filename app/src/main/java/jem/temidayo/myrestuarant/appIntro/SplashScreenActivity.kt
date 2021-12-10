@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
-import jem.temidayo.myrestuarant.MainActivity
 import jem.temidayo.myrestuarant.R
 import jem.temidayo.myrestuarant.databinding.ActivitySplashScreenBinding
 
@@ -30,7 +29,7 @@ class SplashScreenActivity : AppCompatActivity() {
         binding.logo.startAnimation(fadeIn)
 
         Handler().postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, AppfeaturesPager::class.java)
             startActivity(intent)
             finish()
         }, 3000)
