@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/rusty_black_wood"
-    tools:context=".appIntro.features.Features1">
+    tools:context=".appIntro.features.Feature1">
 
     <ImageView
         android:id="@+id/imageFeatureOne"
@@ -36,22 +36,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageFeatureOne" />
 
-    <Button
-        android:id="@+id/buttonNextFeature"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="280dp"
-        android:layout_marginBottom="79dp"
-        android:backgroundTint="@color/white"
-        android:text="@string/nextFeatureButtonLabel"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textDescriptionView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
