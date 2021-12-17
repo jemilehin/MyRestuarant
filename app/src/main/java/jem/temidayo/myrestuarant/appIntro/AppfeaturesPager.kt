@@ -2,10 +2,15 @@ package jem.temidayo.myrestuarant.appIntro
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import jem.temidayo.myrestuarant.MainActivity
+import jem.temidayo.myrestuarant.R
 import jem.temidayo.myrestuarant.appIntro.features.Feature1
 import jem.temidayo.myrestuarant.appIntro.features.Feature2
 import jem.temidayo.myrestuarant.databinding.ActivityViewpager2Binding
@@ -37,6 +42,7 @@ class AppfeaturesPager : AppCompatActivity() {
         binding.indicatorLayout.setIndicatorCount(adapter.itemCount)
         binding.indicatorLayout.selectCurrentPosition(0)
 
+
         binding.next.setOnClickListener {
             val position = viewPager.currentItem
             if (position < 1) {
@@ -47,14 +53,13 @@ class AppfeaturesPager : AppCompatActivity() {
                 finish()
             }
         }
-
-        registerListner()
+        registerListener()
     }
 
-    private fun registerListner() {
+
+    private fun registerListener() {
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
             override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
                 binding.indicatorLayout.selectCurrentPosition(position)
 //                if (position < fragmentList.lastIndex) {
 //                    tvSkip.visibility = View.VISIBLE
