@@ -12,7 +12,6 @@
         <activity
             android:name=".appIntro.AppfeaturesPager"
             android:theme="@style/SplashScreen">
-
         </activity>
         <activity
             android:name=".appIntro.SplashScreenActivity"
@@ -26,7 +25,6 @@
         <activity
             android:name=".MainActivity"
             android:label="Dashboard">
-
         </activity>
     </application>
 

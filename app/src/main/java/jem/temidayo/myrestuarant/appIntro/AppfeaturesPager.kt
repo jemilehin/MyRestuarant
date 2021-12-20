@@ -2,6 +2,7 @@ package jem.temidayo.myrestuarant.appIntro
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -47,11 +48,13 @@ class AppfeaturesPager : AppCompatActivity() {
             val position = viewPager.currentItem
             if (position < 1) {
                 viewPager.setCurrentItem(position + 1)
-            } else {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
             }
+        }
+
+        binding.continueText.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
         registerListener()
     }
@@ -61,13 +64,13 @@ class AppfeaturesPager : AppCompatActivity() {
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
             override fun onPageSelected(position: Int) {
                 binding.indicatorLayout.selectCurrentPosition(position)
-//                if (position < fragmentList.lastIndex) {
-//                    tvSkip.visibility = View.VISIBLE
-//                    tvNext.text = "Next"
-//                } else {
-//                    tvSkip.visibility = View.GONE
-//                    tvNext.text = "Get Started"
-//                }
+                if (position != fragmentList.lastIndex) {
+                    binding.next.visibility = View.VISIBLE
+                    binding.continueText.visibility = View.INVISIBLE
+                }else{
+                    binding.next.visibility = View.INVISIBLE
+                    binding.continueText.visibility = View.VISIBLE
+                }
             }
         })
     }
