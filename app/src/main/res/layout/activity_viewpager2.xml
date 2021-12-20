@@ -12,7 +12,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.viewpager2.widget.ViewPager2>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,31 +26,60 @@
 
         <jem.temidayo.myrestuarant.appIntro.features.IndicatorLayout
             android:id="@+id/indicatorLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="32dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/next" />
-
-        <Button
-            android:id="@+id/next"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="277dp"
-            android:layout_marginTop="120dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="500dp"
             android:layout_marginEnd="47dp"
-            android:layout_marginBottom="79dp"
-            android:backgroundTint="@color/white"
-            android:text="@string/nextFeatureButtonLabel"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:layout_marginBottom="32dp"
+            android:gravity="left"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/button_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+        </jem.temidayo.myrestuarant.appIntro.features.IndicatorLayout>
+
+        <RelativeLayout
+            android:id="@+id/button_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDescriptionView" />
+            app:layout_constraintTop_toBottomOf="@id/indicatorLayout">
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="47dp"
+                android:layout_marginTop="13dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/nextFeatureButtonLabel"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/continue_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/next"
+                android:layout_alignRight="@id/next"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginRight="-240dp"
+                android:text="Continue"
+                android:textAlignment="textEnd"
+                android:textColor="@color/primary_color"
+                android:textSize="24sp"
+                android:visibility="invisible" />
+        </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
