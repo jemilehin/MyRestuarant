@@ -3,15 +3,10 @@ package jem.temidayo.myrestuarant.appIntro
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import jem.temidayo.myrestuarant.MainActivity
-import jem.temidayo.myrestuarant.R
 import jem.temidayo.myrestuarant.appIntro.features.Feature1
 import jem.temidayo.myrestuarant.appIntro.features.Feature2
 import jem.temidayo.myrestuarant.databinding.ActivityViewpager2Binding
@@ -22,6 +17,7 @@ class AppfeaturesPager : AppCompatActivity() {
     private lateinit var binding: ActivityViewpager2Binding
     private val fragmentList = ArrayList<Fragment>()
     private lateinit var viewPager: ViewPager2
+    private lateinit var manager: PreferencesManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,20 +25,33 @@ class AppfeaturesPager : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        viewPager = binding.viewPagerLayout
+        manager = PreferencesManager(this)
 
+        if(manager.isFirstRun()){
+            ShowSliders()
+        }else{
+            goToDashBoard()
+        }
+
+    }
+
+    private fun goToDashBoard() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun ShowSliders(){
+        manager.setFirstRun()
+
+        viewPager = binding.viewPagerLayout
         val adapter = PagerAdapter(this)
         viewPager.adapter = adapter
 
-        fragmentList.addAll(listOf(
-                Feature1(), Feature2()
-        ))
-
+        fragmentList.addAll(listOf(Feature1(), Feature2()))
         adapter.setFragmentList(fragmentList)
 
         binding.indicatorLayout.setIndicatorCount(adapter.itemCount)
         binding.indicatorLayout.selectCurrentPosition(0)
-
 
         binding.next.setOnClickListener {
             val position = viewPager.currentItem
