@@ -3,15 +3,10 @@ package jem.temidayo.myrestuarant.appIntro
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import jem.temidayo.myrestuarant.MainActivity
-import jem.temidayo.myrestuarant.R
 import jem.temidayo.myrestuarant.appIntro.features.Feature1
 import jem.temidayo.myrestuarant.appIntro.features.Feature2
 import jem.temidayo.myrestuarant.databinding.ActivityViewpager2Binding
