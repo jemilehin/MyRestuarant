@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "147727839597",
+    "project_id": "myrestuarant-9c87c",
+    "storage_bucket": "myrestuarant-9c87c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147727839597:android:0cf03de71fcbb83b77ea64",
+        "android_client_info": {
+          "package_name": "jem.temidayo.myrestuarant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147727839597-5qdlv8h40b8vihm2dtg5i87ebgqtfeo4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB3psOCPHjLzMOMuT7l4ENH312fFPcS6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147727839597-5qdlv8h40b8vihm2dtg5i87ebgqtfeo4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
