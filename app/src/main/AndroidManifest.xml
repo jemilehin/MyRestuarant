@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyRestuarant">
+        <activity android:name=".RegisterActivity"></activity>
         <activity
             android:name=".appIntro.AppfeaturesPager"
-            android:theme="@style/SplashScreen">
-        </activity>
+            android:theme="@style/SplashScreen"></activity>
         <activity
             android:name=".appIntro.SplashScreenActivity"
             android:theme="@style/SplashScreen">
@@ -24,8 +24,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="Dashboard">
-        </activity>
+            android:label="Dashboard"></activity>
     </application>
 
 </manifest>
