@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import jem.temidayo.myrestuarant.MainActivity
+import jem.temidayo.myrestuarant.RegisterActivity
 import jem.temidayo.myrestuarant.appIntro.features.Feature1
 import jem.temidayo.myrestuarant.appIntro.features.Feature2
 import jem.temidayo.myrestuarant.databinding.ActivityViewpager2Binding
@@ -38,6 +39,7 @@ class AppfeaturesPager : AppCompatActivity() {
     private fun goToDashBoard() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     private fun ShowSliders(){
@@ -61,9 +63,9 @@ class AppfeaturesPager : AppCompatActivity() {
         }
 
         binding.continueText.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
-            finish()
+//            finish()
         }
         registerListener()
     }

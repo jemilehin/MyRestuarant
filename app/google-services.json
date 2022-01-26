@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "147727839597-crp39b7sjoe5ksqdm15us4m1dbualneu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jem.temidayo.myrestuarant",
+            "certificate_hash": "a2ec5ab40ceac8d5cb3d322bf2e476f08313cda4"
+          }
+        },
+        {
           "client_id": "147727839597-5qdlv8h40b8vihm2dtg5i87ebgqtfeo4.apps.googleusercontent.com",
           "client_type": 3
         }
