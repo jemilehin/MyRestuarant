@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="secondaryColor">#BF2A16</color>
+    <color name="secondaryColor_variant">#F43E25</color>
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>
     <color name="light_blue_A200">#FF40C4FF</color>
@@ -15,6 +16,7 @@
     <color name="black_overlay">#66000000</color>
     <color name="grey_overlay">#66CACACA</color>
     <color name="primary_color">#F6BC58</color>
+    <color name="primary_color_variant">#CF8608</color>
     <color name="text_secondary">#605D5D</color>
     <color name="background_secondary">#ECEAE8</color>
 </resources>
