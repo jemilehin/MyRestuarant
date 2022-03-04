@@ -10,4 +10,7 @@
     <string name="account_name">Account Name</string>
     <string name="back">Back</string>
     <string name="create_account">Create Account</string>
+    <string name="enter_otp_code">Enter OTP COde</string>
+    <string name="phone_verification">Phone Verification</string>
+    <string name="verify">Verify</string>
 </resources>

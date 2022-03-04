@@ -31,6 +31,10 @@
         <activity
             android:name=".MainActivity"
             android:label="Dashboard" />
+        <activity
+            android:name=".SigninActivity"
+            android:label="Signin"
+            />
     </application>
 
 </manifest>
