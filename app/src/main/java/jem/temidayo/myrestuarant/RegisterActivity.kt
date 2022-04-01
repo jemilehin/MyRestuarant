@@ -21,18 +21,15 @@ class RegisterActivity : AppCompatActivity() {
         binding.registerButton.setOnClickListener{
             registerUser()
         }
-
-        binding.backButton.setOnClickListener {
-
-        }
     }
 
     private fun registerUser() {
         val username: String = binding.editTextName.text.toString()
         val phone: String = binding.editTextPhone.text.toString()
         val password: String = binding.editTextPassword.text.toString()
+        val email: String = binding.editTextEmailAddress.text.toString()
 
-        val user = User(username,phone,password)
+        val user = User(username,phone,password,email)
 
         if(username == ""){
             Toast.makeText(this, "Please Provide your name", Toast.LENGTH_LONG).show()
@@ -41,10 +38,12 @@ class RegisterActivity : AppCompatActivity() {
         }else if(password == ""){
             Toast.makeText(this, "Password cannot be empty", Toast.LENGTH_LONG).show()
         }else{
-            val intent = Intent(this, PhoneVerification::class.java)
+//            val intent = Intent(this, PhoneVerification::class.java)
+    val intent = Intent(this, PhoneVerification::class.java)
             intent.putExtra("Phone", user.phone_number)
             intent.putExtra("Username", user.name)
             intent.putExtra("Password", user.password)
+            intent.putExtra("Email", user.email)
             startActivity(intent)
         }
     }

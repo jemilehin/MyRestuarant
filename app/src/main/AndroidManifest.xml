@@ -34,6 +34,7 @@
         <activity
             android:name=".SigninActivity"
             android:label="Signin"
+            android:theme="@style/SplashScreen"
             />
     </application>
 

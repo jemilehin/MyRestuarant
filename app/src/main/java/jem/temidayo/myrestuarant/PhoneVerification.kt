@@ -41,9 +41,10 @@ class PhoneVerification : AppCompatActivity() {
         val phone : String = intent.getStringExtra("Phone").toString()
         val username : String = intent.getStringExtra("Username").toString()
         val password : String = intent.getStringExtra("Password").toString()
+        val email: String = intent.getStringExtra("Email").toString()
         sendVerificationCode(phone)
 
-        user = User(username, phone, password)
+        user = User(username, phone, password,email)
 
         databaseReference = Firebase.database.reference
 
@@ -161,6 +162,7 @@ class PhoneVerification : AppCompatActivity() {
                         val intent = Intent(this, MainActivity::class.java)
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         startActivity(intent)
+                        createUserWithEmailAndPassword(user.email,user.password)
                         Log.i("user", user.toString())
                     } else {
                         // Sign in failed, display a message and update the UI
@@ -173,6 +175,23 @@ class PhoneVerification : AppCompatActivity() {
                         // Update UI
                     }
                 }
+    }
+
+    private fun createUserWithEmailAndPassword(email: String,password:String){
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "createUserWithEmail:success")
+                        val user = auth.currentUser
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                        Toast.makeText(baseContext, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show()
+                    }
+                }
+
     }
 
 }
