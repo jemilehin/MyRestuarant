@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jem.temidayo.myrestuarant">
-
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -12,10 +17,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyRestuarant">
         <activity
+            android:name=".DrawerMenu"
+            android:label="@string/title_activity_drawer_menu"
+            android:theme="@style/Theme.MyRestuarant.NoActionBar"></activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".MapRestuarants"
+            android:label="@string/title_activity_map_restuarants" />
+        <activity
             android:name=".PhoneVerification"
             android:label="Phone Verification" />
-        <activity android:name=".RegisterActivity"
-            android:label="Registration"/>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="Registration" />
         <activity
             android:name=".appIntro.AppfeaturesPager"
             android:theme="@style/SplashScreen" />
@@ -34,8 +59,7 @@
         <activity
             android:name=".SigninActivity"
             android:label="Signin"
-            android:theme="@style/SplashScreen"
-            />
+            android:theme="@style/SplashScreen" />
     </application>
 
 </manifest>
