@@ -159,7 +159,7 @@ class PhoneVerification : AppCompatActivity() {
                         var userId : String = ""
                         val phone = auth.currentUser?.phoneNumber
                         databaseReference.child("Users").child(userId).setValue(user)
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, MapRestuarants::class.java)
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         startActivity(intent)
                         createUserWithEmailAndPassword(user.email,user.password)

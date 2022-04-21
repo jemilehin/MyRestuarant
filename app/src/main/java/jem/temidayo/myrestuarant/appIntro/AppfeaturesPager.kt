@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import jem.temidayo.myrestuarant.MainActivity
+import jem.temidayo.myrestuarant.MapRestuarants
 import jem.temidayo.myrestuarant.RegisterActivity
 import jem.temidayo.myrestuarant.appIntro.features.Feature1
 import jem.temidayo.myrestuarant.appIntro.features.Feature2
@@ -37,7 +37,7 @@ class AppfeaturesPager : AppCompatActivity() {
     }
 
     private fun goToDashBoard() {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MapRestuarants::class.java)
         startActivity(intent)
         finish()
     }
