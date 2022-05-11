@@ -18,3 +18,5 @@ data class Invoice(val id: Int, val order_number: String, val reference_number: 
 data class RestuarantAdrress(var restuarantName: String, var email: String, var contact: String, var address: List<String>){
     constructor(): this("","","", emptyList())
 }
+
+data class RestuarantPosition(var Lat: Double, var Lng: Double)

@@ -1,9 +1,14 @@
 package jem.temidayo.myrestuarant
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
@@ -11,16 +16,22 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import jem.temidayo.myrestuarant.RestuarantDataObjects.RestuarantAdrress
+import jem.temidayo.myrestuarant.RestuarantDataObjects.RestuarantPosition
+import java.util.*
+import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 
-class MapRestuarants : AppCompatActivity(), OnMapReadyCallback {
+class MapRestuarants : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private lateinit var map: GoogleMap
     private var locationPermissionGranted = false
-    private val defaultLocation = LatLng(-33.8523341, 151.2106085)
-    private lateinit var restuarantAdrress: Array<LatLng>
+//    private val defaultLocation = LatLng(-33.8523341, 151.2106085)
+    private lateinit var restuarantAdrress: Array<String>
+    private lateinit var Locations: MutableList<LatLng>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +41,8 @@ class MapRestuarants : AppCompatActivity(), OnMapReadyCallback {
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        restuarantAdrress = arrayOf(LatLng(-31.952854, 115.857342),
-            LatLng(-33.87365, 151.20689),
-            LatLng(-27.47093, 153.0235)
-        )
+        restuarantAdrress = arrayOf("Ajasa Command Rd, Oke Odo , Lagos", "152 Meiran Rd, Abule Egba , Lagos")
+        Locations = ArrayList()
     }
 
 
@@ -51,14 +60,42 @@ class MapRestuarants : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
         map.mapType = GoogleMap.MAP_TYPE_NORMAL
-        val zoomLevel = 10f
+        val zoomLevel = 15f
+        val geoCoder = Geocoder(this)
 
+        for (latlng in restuarantAdrress){
+            val code = geoCoder.getFromLocationName(latlng,1)
+            Locations.add(LatLng(code[0].latitude,code[0].longitude))
+        }
 
         // Add a marker in Sydney and move the camera
 //        val sydney = LatLng(-34.0, 151.0)
-        for(location in restuarantAdrress){
-            map.addMarker(MarkerOptions().position(location).title("Marker in Sydney"))
+        for(location in Locations){
+            map.addMarker(MarkerOptions().position(location).icon(BitmapDescriptorFactory.fromResource(R.drawable.shop_color)))
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, zoomLevel))
         }
+        map.setOnMarkerClickListener(this)
+    }
+
+    override fun onMarkerClick(marker: Marker): Boolean {
+
+        // Retrieve the data from the marker.
+//        val clickCount = marker.id as? Int
+
+        // Check if a click count was set, then display the click count.
+//        clickCount?.let {
+//            val newClickCount = it + 1
+//            marker.id = newClickCount
+            Toast.makeText(
+                    this,
+                    "${marker.id} has been clicked times.",
+                    Toast.LENGTH_SHORT
+            ).show()
+//        }
+
+        // Return false to indicate that we have not consumed the event and that we wish
+        // for the default behavior to occur (which is for the camera to move such that the
+        // marker is centered and for the marker's info window to open, if it has one).
+        return false
     }
 }
